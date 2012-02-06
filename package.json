@@ -1,0 +1,16 @@
+{
+  "name": "lazy-proxy",
+  "version": "0.0.1",
+  "description": "A simple method of adding an HTTP/HTTPS/REST proxy as middleware",
+  "author": "Joshua Birk <joshua.birk@salesforce.com>",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/joshbirk/lazy-proxy.git"
+  },
+  "main": "./lib/lazy-proxy",
+  "dependencies": {
+
+  },
+  "engines": { "node": ">= 0.4.0" },
+  "keywords": ["http","https","rest","proxy","lazy"]
+}
