@@ -2,8 +2,17 @@
 lazy is meant to be a very simple proxy route for node.js, in particular to be used with express as middleware.  The idea
 is to make it easy to add multiple outbound routes by adding "/abbreviation/json/and-then-my-path-here" or "/abbreviation/view/page/and-then-my-path-here" - where abbreviation could be say "fb" to mean "Facebook" and then  "json" would return the raw JSON (for use with client side AJAX calls) and "view" would then also append server-side view to have the data rendered on to "page".
 
-So an express based route:
+You can install with npm: <b>npm install lazy-proxy</b>
 
+or by download locally and refer to it directly.
+
+Requiring works as expected:
+```
+var lazyproxy = require('lazy-proxy');
+```
+
+
+An express based route:
 ```
 app.all('/:label/:mode/*',
   ensureAuthenticated,
@@ -43,16 +52,16 @@ app.all('/:label/:mode/*',
   });
   ```
 
-  Would allow an application to forward those routes to Force.com and Facebook.  Where:
+Would allow an application to forward those routes to Force.com and Facebook.  Where:
 
-  ```
-  /fdc/json/services/data/v22.0/query?q=SELECT%20ID%20FROM%20Account
-  ```
+```
+/fdc/json/services/data/v22.0/query?q=SELECT%20ID%20FROM%20Account
+```
 
-  Would send the result of SOQL callout directly back as json,
+Would send the result of SOQL callout directly back as json, as where:
 
-  ```
+```
 /fdc/view/account/services/data/v22.0/sobjects/Account/{accountId}
-  ```
+```
 
 Would call render("account",{accountdata}) instead.
